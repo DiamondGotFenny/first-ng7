@@ -8,9 +8,11 @@ import { HobbiesPageComponent } from "./hobbies-page/hobbies-page.component";
 import { UserComponent } from "./user/user.component";
 import { BlogComponent } from "./blog/blog.component";
 import { FormsModule } from "@angular/forms";
+import { HomeComponent } from "./home/home.component";
 
 const appRoutes: Routes = [
-  { path: "", component: HobbiesListComponent },
+  { path: "", component: HomeComponent },
+  { path: "hobbies", component: HobbiesPageComponent },
   { path: "user", component: UserComponent },
   { path: "blog", component: BlogComponent },
 ];
@@ -21,6 +23,7 @@ const appRoutes: Routes = [
     HobbiesPageComponent,
     UserComponent,
     BlogComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],

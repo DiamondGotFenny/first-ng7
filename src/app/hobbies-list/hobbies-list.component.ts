@@ -11,7 +11,7 @@ export class HobbiesListComponent implements OnInit {
   ngOnInit() {}
   @Input() items: Array<any>;
   @Output() deleteItem = new EventEmitter<any>();
-  removeItem(item) {
+  removeItem(item: { id: string; value: string }) {
     this.deleteItem.emit(item);
   }
 }

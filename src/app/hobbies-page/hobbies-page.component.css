@@ -1,0 +1,21 @@
+div {
+  text-align: center;
+}
+ul li {
+  text-align: left;
+}
+.deleted {
+  color: red;
+}
+.add {
+  color: green;
+}
+.hidden {
+  display: none;
+}
+.moreThanThreeStyle {
+  color: blue;
+}
+.lessThanThreeStyle {
+  color: green;
+}

@@ -1,3 +1,27 @@
-<p>
-  hobbies-page works!
-</p>
+<div>
+  <p>
+    Hobbies:<span
+      [ngClass]="{
+        moreThanThreeStyle: hobbiesArray.length > 3,
+        lessThanThreeStyle: hobbiesArray.length < 3
+      }"
+      >{{ hobbiesArray.length }}</span
+    >
+  </p>
+  <input type="text" [(ngModel)]="userInput" />
+  <button (click)="addNewHobbies()">Add Hobby</button>
+  <app-hobbies-list
+    [items]="this.hobbiesArray"
+    (deleteItem)="handleRemoveItem($event)"
+  ></app-hobbies-list>
+  <p
+    class="operationNotice"
+    [ngClass]="{
+      hidden: operationNoticeStyle.hidden,
+      deleted: operationNoticeStyle.deleted,
+      add: operationNoticeStyle.add
+    }"
+  >
+    {{ operationNoticeMsg }}
+  </p>
+</div>
