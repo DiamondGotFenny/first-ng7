@@ -1,19 +1,19 @@
 <div>
   <p>
-    Hobbies:<span
+    To-Do List:<span
       [ngClass]="{
-        moreThanThreeStyle: hobbiesArray.length > 3,
-        lessThanThreeStyle: hobbiesArray.length < 3
+        moreThanThreeStyle: todoArray.length > 3,
+        lessThanThreeStyle: todoArray.length < 3
       }"
-      >{{ hobbiesArray.length }}</span
+      >{{ todoArray.length }}</span
     >
   </p>
   <input type="text" [(ngModel)]="userInput" />
-  <button (click)="addNewHobbies()">Add Hobby</button>
-  <app-hobbies-list
-    [items]="this.hobbiesArray"
+  <button (click)="addNewHobbies()">Add Item</button>
+  <app-todo-list
+    [items]="this.todoArray"
     (deleteItem)="handleRemoveItem($event)"
-  ></app-hobbies-list>
+  ></app-todo-list>
   <p
     class="operationNotice"
     [ngClass]="{

@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: "app-hobbies-list",
-  templateUrl: "./hobbies-list.component.html",
-  styleUrls: ["./hobbies-list.component.css"],
+  selector: "app-todo-list",
+  templateUrl: "./todo-list.component.html",
+  styleUrls: ["./todo-list.component.css"],
 })
-export class HobbiesListComponent implements OnInit {
+export class ToDoListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

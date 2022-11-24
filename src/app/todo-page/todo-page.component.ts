@@ -1,22 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import * as _ from "lodash";
 @Component({
-  selector: "app-hobbies-page",
-  templateUrl: "./hobbies-page.component.html",
-  styleUrls: ["./hobbies-page.component.css"],
+  selector: "app-todo-page",
+  templateUrl: "./todo-page.component.html",
+  styleUrls: ["./todo-page.component.css"],
 })
-export class HobbiesPageComponent implements OnInit {
+export class ToDoPageComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
 
   userInput: string;
-  hobbiesArray = [
+  todoArray = [
     { id: "3248", value: "music" },
     { id: "32238", value: "movies" },
     { id: "32438", value: "video games" },
   ];
-  checkHobbiesNum: boolean = this.hobbiesArray.length >= 3;
+  checkHobbiesNum: boolean = this.todoArray.length >= 3;
   operationNoticeStyle = { hidden: true, deleted: false, add: false };
   operationNoticeMsg: string;
   addNewHobbies() {
@@ -25,21 +25,21 @@ export class HobbiesPageComponent implements OnInit {
     }
 
     const newHobby = { id: _.uniqueId(), value: this.userInput };
-    this.hobbiesArray.push(newHobby);
+    this.todoArray.push(newHobby);
     this.operationNoticeMsg = "A hobby has been added";
-    this.isDeletedStyle(false);
+    this.setNoticeMsgStyle(false);
     this.userInput = "";
-    console.log(this.hobbiesArray);
+    console.log(this.todoArray);
   }
   handleRemoveItem(item: { id: string; value: string }) {
     console.log(item);
-    _.remove(this.hobbiesArray, (hobby) => hobby.id === item.id);
+    _.remove(this.todoArray, (hobby) => hobby.id === item.id);
     this.operationNoticeMsg = "A hobby has been deleted";
-    this.isDeletedStyle(true);
+    this.setNoticeMsgStyle(true);
 
     console.log(this.operationNoticeMsg);
   }
-  isDeletedStyle(isDeleted: boolean) {
+  setNoticeMsgStyle(isDeleted: boolean) {
     this.operationNoticeStyle.hidden = false;
     this.operationNoticeStyle.add = !isDeleted;
     this.operationNoticeStyle.deleted = isDeleted;
