@@ -1,6 +1,11 @@
 <ul>
-  <li *ngFor="let item of items" class="mt-2" (click)="setItemDone(item)">
-    <button type="button" class="btn btn-outline-success mr-2">Done</button
+  <li *ngFor="let item of items" class="mt-2">
+    <button
+      type="button"
+      class="btn btn-outline-success mr-2"
+      (click)="setItemDone(item)"
+    >
+      Done</button
     ><span class="content" [ngClass]="{ lineOutItem: item.isDone }">{{
       item.value
     }}</span
