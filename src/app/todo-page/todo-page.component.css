@@ -1,7 +1,9 @@
 div {
   text-align: center;
 }
-
+.input-group {
+  margin: 0 auto;
+}
 .deleted {
   color: red;
 }

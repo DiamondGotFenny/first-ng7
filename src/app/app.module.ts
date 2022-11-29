@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
+import bootstrap from "bootstrap";
 import { AppComponent } from "./app.component";
 import { Routes, RouterModule } from "@angular/router";
 import { ToDoListComponent } from "./todo-list/todo-list.component";

@@ -11,7 +11,11 @@ export class ToDoListComponent implements OnInit {
   ngOnInit() {}
   @Input() items: Array<any>;
   @Output() deleteItem = new EventEmitter<any>();
-  removeItem(item: { id: string; value: string }) {
+  @Output() doneItem = new EventEmitter<any>();
+  removeItem(item: { id: string; value: string; isDone: boolean }) {
     this.deleteItem.emit(item);
+  }
+  setItemDone(item: { id: string; value: string; isDone: boolean }) {
+    this.doneItem.emit(item);
   }
 }

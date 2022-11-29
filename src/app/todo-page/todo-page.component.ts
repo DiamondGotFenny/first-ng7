@@ -12,9 +12,9 @@ export class ToDoPageComponent implements OnInit {
 
   userInput: string;
   todoArray = [
-    { id: "3248", value: "music" },
-    { id: "32238", value: "movies" },
-    { id: "32438", value: "video games" },
+    { id: "3248", value: "Running", isDone: false },
+    { id: "32238", value: "watch movies", isDone: true },
+    { id: "32438", value: "play video games", isDone: false },
   ];
   checkHobbiesNum: boolean = this.todoArray.length >= 3;
   operationNoticeStyle = { hidden: true, deleted: false, add: false };
@@ -24,20 +24,24 @@ export class ToDoPageComponent implements OnInit {
       return;
     }
 
-    const newHobby = { id: _.uniqueId(), value: this.userInput };
+    const newHobby = { id: _.uniqueId(), value: this.userInput, isDone: false };
     this.todoArray.push(newHobby);
-    this.operationNoticeMsg = "A hobby has been added";
+    this.operationNoticeMsg = "A to-do Item has been added";
     this.setNoticeMsgStyle(false);
     this.userInput = "";
-    console.log(this.todoArray);
   }
-  handleRemoveItem(item: { id: string; value: string }) {
-    console.log(item);
+  handleRemoveItem(item: { id: string; value: string; isDone: boolean }) {
     _.remove(this.todoArray, (hobby) => hobby.id === item.id);
-    this.operationNoticeMsg = "A hobby has been deleted";
+    this.operationNoticeMsg = "A to-do Item has been deleted";
     this.setNoticeMsgStyle(true);
-
-    console.log(this.operationNoticeMsg);
+  }
+  handleItemDone(item: { id: string; value: string; isDone: boolean }) {
+    this.todoArray = this.todoArray.map((ele) => {
+      if (ele.id === item.id) {
+        ele.isDone = !item.isDone;
+      }
+      return ele;
+    });
   }
   setNoticeMsgStyle(isDeleted: boolean) {
     this.operationNoticeStyle.hidden = false;
@@ -47,6 +51,6 @@ export class ToDoPageComponent implements OnInit {
       this.operationNoticeStyle.hidden = true;
       this.operationNoticeStyle.add = isDeleted;
       this.operationNoticeStyle.deleted = !isDeleted;
-    }, 1000);
+    }, 1300);
   }
 }

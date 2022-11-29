@@ -1,6 +1,17 @@
 ul {
   list-style-type: none;
+  width: 40%;
+  margin: 0 auto;
+}
+ul .lineOutItem {
+  text-decoration-line: line-through;
+  text-decoration-color: #28a745;
 }
 ul li {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+ul li .content {
+  width: 80%;
 }

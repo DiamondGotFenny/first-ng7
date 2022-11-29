@@ -1,5 +1,15 @@
 <ul>
-  <li *ngFor="let item of items" (click)="removeItem(item)">
-    {{ item.value }}
+  <li *ngFor="let item of items" class="mt-2" (click)="setItemDone(item)">
+    <button type="button" class="btn btn-outline-success mr-2">Done</button
+    ><span class="content" [ngClass]="{ lineOutItem: item.isDone }">{{
+      item.value
+    }}</span
+    ><button
+      type="button"
+      class="btn btn-outline-danger ml-2 mt-2"
+      (click)="removeItem(item)"
+    >
+      Delete
+    </button>
   </li>
 </ul>

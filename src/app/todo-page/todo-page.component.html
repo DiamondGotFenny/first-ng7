@@ -8,11 +8,34 @@
       >{{ todoArray.length }}</span
     >
   </p>
-  <input type="text" [(ngModel)]="userInput" />
-  <button (click)="addNewHobbies()">Add Item</button>
+  <div class="input-group mb-3 w-25">
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-primary"
+        type="button"
+        id="utton-addTodo"
+        (click)="addNewHobbies()"
+      >
+        Add Item
+      </button>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      placeholder=""
+      aria-label="add to do item"
+      aria-describedby="button-addTodo"
+    />
+  </div>
+
+  <!-- <input type="text" [(ngModel)]="userInput" />
+  <button (click)="addNewHobbies()" class="btn btn-primary ml-2">
+    Add Item
+  </button> -->
   <app-todo-list
     [items]="this.todoArray"
     (deleteItem)="handleRemoveItem($event)"
+    (doneItem)="handleItemDone($event)"
   ></app-todo-list>
   <p
     class="operationNotice"
